@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 const auth = require("../../middlewere/authMiddlewere");
 const multer = require("multer");
+const sharp = require("sharp");
 
 //route GET api/users
 //access public
@@ -92,9 +93,12 @@ router.post(
   upload.single("avatar"),
   async (req, res) => {
     try {
-      let file = req.file.buffer;
-      let user = await User.findById(req.user.id);
-      user.avatarBuff = file;
+      let user = await User.findById(req.user.id).select("-password");
+      const buffer = await sharp(req.file.buffer)
+        .resize({ width: 150, height: 160 })
+        .png()
+        .toBuffer();
+      user.avatarBuff = buffer;
       user.avatar = `http://localhost:5000/api/users/${req.user.id}/avatar?${
         Math.random() * 100
       }`;
@@ -117,7 +121,7 @@ router.get("/:id/avatar", async (req, res) => {
       throw new Error();
     }
 
-    res.set("Content-Type", "image/jpeg");
+    res.set("Content-Type", "image/png");
     res.send(user.avatarBuff);
   } catch (err) {
     res.status(404).send();

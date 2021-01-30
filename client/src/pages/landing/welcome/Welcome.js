@@ -13,7 +13,6 @@ const Welcome = ({
   signOut,
   myProfile,
   setAvatarImg,
-  uploadLoading,
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -30,7 +29,6 @@ const Welcome = ({
               user={user}
               myProfile={myProfile}
               setAvatarImg={setAvatarImg}
-              loading={uploadLoading}
             />
           )}
         />
@@ -42,7 +40,6 @@ const Welcome = ({
 const mapStateToProps = (state) => ({
   user: state.auth.user,
   myProfile: state.profile.myProfile,
-  uploadLoading: state.auth.uploadLoading,
 });
 const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOut()),
