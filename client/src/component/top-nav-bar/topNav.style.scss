@@ -1,0 +1,34 @@
+.top-nav-container {
+  position: relative;
+  width: 100%;
+  background-color: #f1f1f1;
+  height: 55px;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .top-nav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+    .rightSide {
+      display: flex;
+      align-items: center;
+      .message-container {
+        display: flex;
+        margin-right: 10px;
+      }
+      .navIcon {
+        font-size: 30px;
+        color: gray;
+        margin: 0 15px;
+        cursor: pointer;
+        &:hover {
+          color: #6295a6;
+        }
+      }
+    }
+  }
+}

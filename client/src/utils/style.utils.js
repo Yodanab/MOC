@@ -1,0 +1,53 @@
+export const primaryColor = "#6295a6";
+export const hoverColor = " #295969";
+export const borderColor = "#cccccc";
+
+export const cancelColor = "#e91e63";
+export const cancelBg = "#f9a3a3";
+export const confirmColor = "green";
+export const confirmBg = "#a3f9a3";
+export const bottomNavBg = "#474d53";
+
+export const profileBg = `radial-gradient(
+    circle at 28% 90%,
+    rgba(113, 113, 113, 0.03) 0%,
+    rgba(113, 113, 113, 0.03) 24%,
+    transparent 24%,
+    transparent 100%
+  ),
+  radial-gradient(
+    circle at 84% 65%,
+    rgba(173, 173, 173, 0.03) 0%,
+    rgba(173, 173, 173, 0.03) 45%,
+    transparent 45%,
+    transparent 100%
+  ),
+  radial-gradient(
+    circle at 46% 12%,
+    rgba(141, 141, 141, 0.03) 0%,
+    rgba(141, 141, 141, 0.03) 22%,
+    transparent 22%,
+    transparent 100%
+  ),
+  radial-gradient(
+    circle at 26% 14%,
+    rgba(119, 119, 119, 0.03) 0%,
+    rgba(119, 119, 119, 0.03) 35%,
+    transparent 35%,
+    transparent 100%
+  ),
+  radial-gradient(
+    circle at 81% 90%,
+    rgba(42, 42, 42, 0.03) 0%,
+    rgba(42, 42, 42, 0.03) 40%,
+    transparent 40%,
+    transparent 100%
+  ),
+  radial-gradient(
+    circle at 28% 100%,
+    rgba(234, 234, 234, 0.03) 0%,
+    rgba(234, 234, 234, 0.03) 56%,
+    transparent 56%,
+    transparent 100%
+  ),
+  linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255))`;

@@ -1,0 +1,31 @@
+.log-sign-container {
+  margin-top: 100px;
+
+  .log-in-container {
+    border: 1px solid rgb(192, 192, 192);
+    border-bottom: 0;
+    border-top: 0;
+    width: 500px;
+    margin: auto;
+    .form-container {
+      padding: 20px;
+      .logo-container {
+        text-align: center;
+      }
+    }
+  }
+  .login-footer {
+    margin: auto;
+    width: 500px;
+    background-color: #f4f4f4;
+    height: 60px;
+    border-radius: 0 0 20px 20px;
+    border: 1px solid rgb(192, 192, 192);
+    border-top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6295a6;
+  }
+}
