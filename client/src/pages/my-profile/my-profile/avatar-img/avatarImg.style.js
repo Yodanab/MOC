@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primaryColor } from "../../../utils/style.utils";
+import { primaryColor, hoverColor } from "../../../../utils/style.utils";
 
 export const ImgContainer = styled.div`
   position: relative;
@@ -15,7 +15,7 @@ export const ImgOverlay = styled.div`
   height: 150px;
   background-color: #8080807a;
   border-radius: 50%;
-  border: 2px solid ${primaryColor};
+  border: 2px solid ${hoverColor};
   opacity: 0;
   transition: 0.2s ease-in;
   &:hover {
@@ -39,12 +39,4 @@ export const ConfirmButtons = styled.div`
   display: flex;
   top: 40%;
   left: 170px;
-`;
-
-export const ImgSpinner = styled.div`
-  background-color: red;
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  border: 2px solid ${primaryColor};
 `;

@@ -7,6 +7,7 @@ export const cancelBg = "#f9a3a3";
 export const confirmColor = "green";
 export const confirmBg = "#a3f9a3";
 export const bottomNavBg = "#474d53";
+export const textColor = "#717171";
 
 export const profileBg = `radial-gradient(
     circle at 28% 90%,

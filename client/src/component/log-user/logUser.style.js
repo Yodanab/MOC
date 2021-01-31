@@ -16,7 +16,9 @@ export const LogUserContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-
   border-left: 1px solid ${borderColor};
   padding-left: 10px;
+  span {
+    text-transform: capitalize;
+  }
 `;
