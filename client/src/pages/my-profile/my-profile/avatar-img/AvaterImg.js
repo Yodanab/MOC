@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import MyButton from "../../../layouts/input-field/buttons/my-button/MyButton";
+import MyButton from "../../../../layouts/input-field/buttons/my-button/MyButton";
 import {
   ImgContainer,
   UserImg,
   ImgOverlay,
   ConfirmButtons,
 } from "./avatarImg.style";
-import { editAvatar, confirm, cancel } from "../../../gifs&svg/fontAwesome";
+import { editAvatar, confirm, cancel } from "../../../../gifs&svg/fontAwesome";
 
-const AvatarImg = ({ user, setAvatarImg, loading }) => {
+const AvatarImg = ({ user, setAvatarImg }) => {
   const [imgFile, setImgFile] = useState({ img: null, buttons: false });
 
   let imgSrc = imgFile.img ? URL.createObjectURL(imgFile.img[0]) : user.avatar;

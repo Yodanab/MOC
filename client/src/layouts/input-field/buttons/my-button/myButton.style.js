@@ -6,6 +6,7 @@ import {
   cancelBg,
   confirmColor,
   confirmBg,
+  textColor,
 } from "../../../../utils/style.utils";
 
 export const ButtonContainer = styled.div`
@@ -20,6 +21,9 @@ const buttonStyle = (props) => {
   }
   if (props.cancel) {
     return cancelStyle;
+  }
+  if (props.noColor) {
+    return noColor;
   } else {
     return defaultStyle;
   }
@@ -32,9 +36,7 @@ const defaultStyle = css`
   font-size: 1rem;
   border-radius: 5px;
   transition: 0.2s;
-  &:focus {
-    outline: none;
-  }
+
   &:hover {
     background-color: ${hoverColor};
   }
@@ -51,9 +53,6 @@ const confirmStyle = css`
   &:hover {
     transform: scale(1.1);
   }
-  &:focus {
-    outline: none;
-  }
 `;
 
 const cancelStyle = css`
@@ -69,8 +68,19 @@ const cancelStyle = css`
   }
 `;
 
+const noColor = css`
+  color: ${textColor};
+  width: 70px;
+  height: 40px;
+  background-color: #f0f8ff00;
+  font-size: 30px;
+`;
+
 export const CustomButton = styled.button`
   cursor: pointer;
   border: none;
   ${buttonStyle}
+  &:focus {
+    outline: none;
+  }
 `;
