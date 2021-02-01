@@ -98,8 +98,9 @@ router.post(
         .png()
         .toBuffer();
       user.avatarBuff = buffer;
-      user.avatar = `http://localhost:5000/api/users/${req.user.id}/avatar?${Math.random() * 100
-        }`;
+      user.avatar = `http://localhost:5000/api/users/${req.user.id}/avatar?${
+        Math.random() * 100
+      }`;
       await user.save();
       res.json(user);
     } catch (err) {
@@ -123,6 +124,26 @@ router.get("/:id/avatar", async (req, res) => {
     res.send(user.avatarBuff);
   } catch (err) {
     res.status(404).send();
+  }
+});
+
+// change user password
+//PUT private
+router.put("/password", auth, async (req, res) => {
+  const { password, newPassword } = req.body;
+  try {
+    let user = await User.findById(req.user.id);
+    let isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ errors: [{ msg: "something is wrong" }] });
+    }
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(newPassword, salt);
+    await user.save();
+    res.json({ msg: "great" });
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).send("server error");
   }
 });
 

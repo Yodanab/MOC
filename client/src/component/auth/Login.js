@@ -12,9 +12,10 @@ const Login = ({ logInUser, sendToken }) => {
 
   const handleSubmit = async (e) => {
     const { email, password } = loginData;
+
     e.preventDefault();
     try {
-      await logInUser(email, password);
+      await logInUser(email.toLowerCase(), password);
     } catch (err) {
       console.error(err);
     }
