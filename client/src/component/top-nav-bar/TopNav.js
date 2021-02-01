@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 import LogUser from "../log-user/LogUser";
 
-const TopNav = ({ user, signOut }) => {
+const TopNav = ({ user, signOut, toggleMassageView }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const toggleView = () => {
@@ -28,7 +28,9 @@ const TopNav = ({ user, signOut }) => {
         <div className="rightSide">
           <div className="message-container">
             <div className="navIcon">{notificationIcon}</div>
-            <div className="navIcon">{messageIcon}</div>
+            <div onClick={() => toggleMassageView()} className="navIcon">
+              {messageIcon}
+            </div>
           </div>
           <LogUser user={user} />
 

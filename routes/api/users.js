@@ -5,7 +5,6 @@ const gravatar = require("gravatar");
 const User = require("../../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const config = require("config");
 const auth = require("../../middlewere/authMiddlewere");
 const multer = require("multer");
 const sharp = require("sharp");
@@ -59,7 +58,7 @@ router.post(
       };
       jwt.sign(
         payload,
-        config.get("jwtSecret"),
+        process.env.SECRET_TOKEN,
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
@@ -99,9 +98,8 @@ router.post(
         .png()
         .toBuffer();
       user.avatarBuff = buffer;
-      user.avatar = `http://localhost:5000/api/users/${req.user.id}/avatar?${
-        Math.random() * 100
-      }`;
+      user.avatar = `http://localhost:5000/api/users/${req.user.id}/avatar?${Math.random() * 100
+        }`;
       await user.save();
       res.json(user);
     } catch (err) {

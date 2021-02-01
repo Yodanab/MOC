@@ -1,37 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import BottomNav from "../../../component/bottom-nav-bar/BottomNav";
 import TopNav from "../../../component/top-nav-bar/TopNav";
 import { Route, Switch } from "react-router-dom";
-import MyProfile from "../../my-profile/MyProfile";
+
 import { connect } from "react-redux";
 import { signOut } from "../../../redux/auth/auth.actions";
-import { setAvatarImg } from "../../../redux/user/user.actions";
+import MyProfileRoutes from "../../my-profile/MyProfileRoutes";
+import Massages from "../../../component/massages/Massages";
+import AccountSetRoutes from "../../account-setting/account-setting-routes/AccountSet.routes";
 
-const Welcome = ({
-  getCurrentProfile,
-  user,
-  signOut,
-  myProfile,
-  setAvatarImg,
-}) => {
+const Welcome = ({ getCurrentProfile, user, signOut }) => {
   useEffect(() => {
     getCurrentProfile();
     // eslint-disable-next-line
   }, []);
+  const [massageView, setMassageView] = useState(false);
+
+  const toggleMassageView = () => {
+    setMassageView(!massageView);
+  };
+
   return (
     <>
-      <TopNav signOut={signOut} user={user} />
+      <TopNav
+        toggleMassageView={toggleMassageView}
+        signOut={signOut}
+        user={user}
+      />
+      {massageView && <Massages setMassageView={setMassageView} />}
+
       <Switch>
-        <Route
-          path="/me"
-          render={() => (
-            <MyProfile
-              user={user}
-              myProfile={myProfile}
-              setAvatarImg={setAvatarImg}
-            />
-          )}
-        />
+        <Route path="/me" component={MyProfileRoutes} />
+        <Route path="/my-account" component={AccountSetRoutes} />
       </Switch>
       <BottomNav />
     </>
@@ -39,11 +39,9 @@ const Welcome = ({
 };
 const mapStateToProps = (state) => ({
   user: state.auth.user,
-  myProfile: state.profile.myProfile,
 });
 const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOut()),
-  setAvatarImg: (fromData) => dispatch(setAvatarImg(fromData)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
