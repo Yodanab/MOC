@@ -1,6 +1,0 @@
-{
-    "mongoURI":"mongodb+srv://yodan:yodanaama2409@devconnector.j5ryu.mongodb.net/devConnector?retryWrites=true&w=majority",
-    "jwtSecret":"mySecretToken"
-    
-}
-
