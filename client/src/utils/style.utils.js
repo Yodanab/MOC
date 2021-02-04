@@ -1,7 +1,7 @@
 export const primaryColor = "#6295a6";
 export const hoverColor = " #295969";
 export const borderColor = "#cccccc";
-
+export const hoverTextColor = "#f1f1f1";
 export const cancelColor = "#e91e63";
 export const cancelBg = "#f9a3a3";
 export const confirmColor = "green";

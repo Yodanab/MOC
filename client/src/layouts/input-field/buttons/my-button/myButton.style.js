@@ -24,6 +24,9 @@ const buttonStyle = (props) => {
   }
   if (props.noColor) {
     return noColor;
+  }
+  if (props.smallX) {
+    return smallX;
   } else {
     return defaultStyle;
   }
@@ -70,10 +73,18 @@ const cancelStyle = css`
 
 const noColor = css`
   color: ${textColor};
-  width: 70px;
+  width: ${(props) => (props.width ? props.width : "70px")};
   height: 40px;
   background-color: #f0f8ff00;
-  font-size: 30px;
+  font-size: ${(props) => (props.fontSize ? props.fontSize : "30px")};
+`;
+
+const smallX = css`
+  color: ${textColor};
+  width: 30px;
+  height: 30px;
+  background-color: #f0f8ff00;
+  font-size: 20px;
 `;
 
 export const CustomButton = styled.button`

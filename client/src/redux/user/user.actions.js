@@ -8,3 +8,13 @@ export const setAvatarImg = (avatarImg) => (dispatch) => {
     })
     .catch((err) => dispatch({ type: "SET_AVATAR_IMG_FAILED", payload: err }));
 };
+
+export const changePassword = (password, newPassword) => (dispatch) => {
+  dispatch({ type: "CHANGE_PASSWORD_START" });
+  callFetch(`${URL}/api/users/password`, "PUT", { password, newPassword })
+    .then((res) => {
+      console.log(res);
+      //dispatch success msg here
+    })
+    .catch((err) => console.log(err));
+};
